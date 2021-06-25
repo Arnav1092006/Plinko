@@ -4,9 +4,8 @@ class Particle
     {
         var options = 
         {
-            restitution: 2,
-            friction: 1,
-            isStatic:true
+            restitution: 0.04,
+            friction:0
         }
         this.r = r;
         this.body = Bodies.circle(x,y,this.r,options);
@@ -19,12 +18,13 @@ class Particle
 
     display()
     {
-        // var pos = this.body.position;
-        // var angle = this.body.angle;
+        var pos = this.body.position;
+        var angle = this.body.angle;
 
         push();
-        // translate(pos.x, pos.y);
-        // rotate(angle);
+        translate(pos.x, pos.y);
+        rotate(angle);
+        fill(this.color);
         noStroke();
         ellipseMode(RADIUS);
         ellipse(0,0,this.r,this.r);
